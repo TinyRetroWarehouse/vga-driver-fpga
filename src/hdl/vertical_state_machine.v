@@ -34,7 +34,7 @@ always @(*) begin
 
   case (state)
     STATE_FRONT_PORCH:
-      if (vertical_counter_i == 10d'9) begin
+      if (vertical_counter_i == 9'd9) begin
         vertical_counter_rst_o = 1'b1;
         nextstate = STATE_SYNC_PULSE;
       end else begin
@@ -42,7 +42,7 @@ always @(*) begin
       end
 
     STATE_SYNC_PULSE:
-      if (vertical_counter_i == 10d'1) begin
+      if (vertical_counter_i == 9'd1) begin
         vertical_counter_rst_o = 1'b1;
         nextstate = STATE_BACK_PORCH;
       end else begin
@@ -50,7 +50,7 @@ always @(*) begin
       end
 
     STATE_BACK_PORCH:
-      if (vertical_counter_i == 10d'32) begin
+      if (vertical_counter_i == 9'd32) begin
         vertical_counter_rst_o = 1'b1;
         horizontal_state_machine_rst_o = 1'b1;
         nextstate = STATE_ACTIVE_VIDEO;
@@ -59,7 +59,7 @@ always @(*) begin
       end
 
     STATE_ACTIVE_VIDEO:
-      if (vertical_counter_i == 10d'479) begin
+      if (vertical_counter_i == 9'd479) begin
         vertical_counter_rst_o = 1'b1;
         nextstate = STATE_FRONT_PORCH;
       end else begin

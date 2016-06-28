@@ -30,20 +30,20 @@ assign b_o = active_video_horizontal & active_video_vertical & b;
 
 horizontal_counter horizontal_counter0 (
   .clk_i(clk_i),
-  .rst_i(horizontal_counter_rst),
+  .rst_i(horizontal_counter_rst | rst_i),
   .x_o(x)
 );
 
 vertical_counter vertical_counter0 (
   .clk_i(clk_i),
   .increment_i(vertical_counter_increment),
-  .rst_i(vertical_counter_rst),
+  .rst_i(vertical_counter_rst | rst_i),
   .y_o(y)
 );
 
 horizontal_state_machine horizontal_state_machine0 (
   .clk_i(clk_i),
-  .rst_i(horizontal_state_machine_rst),
+  .rst_i(horizontal_state_machine_rst | rst_i),
   .vertical_active_video_i(active_video_vertical),
   .horizontal_counter_i(x),
   .horizontal_counter_rst_o(horizontal_counter_rst),
