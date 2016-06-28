@@ -23,13 +23,13 @@ module chip_top_tb;
     initial begin
         clk = 1'b0;
         forever begin
-            #10 clk = ~clk;
+            #20 clk = ~clk;
         end
     end
     
     initial begin
         rst = 1'b0;
         #5 rst = 1'b1;
-        #20 rst = 1'b0;
+        #40 rst = 1'b0;
     end
 endmodule
