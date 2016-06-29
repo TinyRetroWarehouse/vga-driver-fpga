@@ -1,5 +1,6 @@
 module clock_divider (
 	input clk_i,
+	input rst_i,
 	output clk_o
 );
 
@@ -11,7 +12,10 @@ always @(*) begin
 end
 
 always @(posedge clk_i) begin
-	clk_q <= clk_d;
+	if (rst_i)
+		clk_q <= 1'b0;
+	else
+		clk_q <= clk_d;
 end
 
 endmodule

@@ -31,6 +31,7 @@ assign b_o = active_video_horizontal & active_video_vertical & b;
 
 clock_divider clock_divider0 (
 	.clk_i(clk_i),
+	.rst_i(rst_i),
 	.clk_o(clk)
 );
 
